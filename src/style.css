@@ -54,7 +54,10 @@ display: inline;
     text-align: center;
     padding-bottom: 10px;;
 }
-.github-link {
+.github-link { 
+    color: black;
+    cursor: pointer;
+    font-weight: thin;
     text-align: center;
-    
 }
+    
