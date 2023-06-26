@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Raleway:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Raleway:ital,wght@0,400;0,600;0,700;0,800;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/f4eaa4aa57.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <form id="location-search-form">
+        <div class="mb-3 search-bar">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Type your location here"
+            id="location-search-input"
+            autocomplete="off"
+            autofocus="on"
+          />
+        </div>
+        <button
+          type="submit"
+          class="btn btn-outline-light btn-sm button"
+          id="location-search-button"
+        >
+          Search
+        </button>
+        <button
+          type="submit"
+          class="btn btn-outline-light btn-sm button"
+          id="current-location-button"
+        >
+          <i class="fa-solid fa-location-dot" style="color: #ffffff"></i>
+        </button>
+      </form>
+      <div class="row">
+        <div class="col-6 current-location">
+          Currently in
+          <h1 id="current-location">
+            London, <br />
+            UK
+          </h1>
+          <p id="current-date">Friday 2 June</p>
+        </div>
+        <div class="col-3 temperature-collumn current-weather">
+          <span class="units">
+            <span class="temp-value" id="temp-value">19°C</span>
+            <!-- <a href="#" class="celsius-toggle" id="celsius-link">°C</a>
+            <a href="#" class="fahreinheit-toggle" id="fahrenheit-link">°F</a> -->
+            <br />
+            Sunny
+          </span>
+        </div>
+        <div class="col-3 current-weather sun-icon">☀️</div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-3">
+          Sunrise <br />
+          Wind
+        </div>
+        <div class="col-3">
+          04:50am <br />
+          8 mp/h
+        </div>
+        <div class="col-3">
+          Sunset <br />
+          Humidity
+        </div>
+        <div class="col-3">
+          21:06pm <br />
+          45%
+        </div>
+      </div>
+      <hr />
+      <div class="row week-forecast">
+        <div class="col-2 week-forecast">Saturday <br />⛅<br />22°C</div>
+        <div class="col-2 week-forecast">Sunday <br />☀️<br />22°C</div>
+        <div class="col-2 week-forecast">Monday <br />⛅<br />21°C</div>
+        <div class="col-2 week-forecast">Tuesday <br />⛅<br />21°C</div>
+        <div class="col-2 week-forecast">Wednesday <br />⛅<br />20°C</div>
+        <div class="col-2 week-forecast">Thursday <br />⛅<br />22°C</div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

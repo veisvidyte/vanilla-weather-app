@@ -1,0 +1,56 @@
+body {
+    background-color: rgb(1, 1, 66);
+    border: 1px solid gray;
+    border-radius: 30px;
+    color: whitesmoke;
+    font-family: PT Mono,monospace;
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 55%;
+}
+form {
+    margin-top: 10px;
+    max-width: 400px;
+    padding: 30px 10px 20px     ;
+}
+h1 {
+font-family: 'Raleway', sans-serif;
+font-weight: 600;
+font-style: italic;
+}
+p {
+font-family: 'Raleway', sans-serif;
+font-weight: 700;
+}
+.search-bar {
+    display: inline-block;
+    width: 250px;
+}
+.current-location {
+    padding-left: 30px;
+}
+.current-weather, .celsius-toggle .fahreinheit-toggle {
+font-size: 15px;
+display: inline;
+}
+.temp-value {
+    display: inline;
+    font-size: 30px;
+}
+.celsius-toggle, .fahreinheit-toggle{
+    cursor: pointer;
+    display: inline;
+}
+.sun-icon {
+    text-align: center;
+    font-size: 100px;
+    padding: 0 10px;
+}
+
+.temperature-collumn {
+    text-align: right;
+}
+.week-forecast {
+    text-align: center;
+    padding-bottom: 10px;;
+}
