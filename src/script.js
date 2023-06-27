@@ -39,13 +39,15 @@ showDate()
 function showCurrentTemp(response) {
   let currentTemp = Math.round(response.data.main.temp);
   let temperature = document.querySelector("#temp-value");
+  let windSpeed = document.querySelector("#wind-speed")
+  windSpeed.innerHTML = Math.round(response.data.wind.speed);
+  let humidity = document.querySelector("#humidity")
+  let sunrise = document.querySelector("#sunrise-time")
+  let sunset = document.querySelector("#sunset-time")
   temperature.innerHTML = `${currentTemp}°C`;
   let h1 = document.querySelector("#current-location");
   h1.innerHTML = response.data.name;
-  // let windSpeed = document.querySelector("#wind-speed")
-  // // windSpeed.innerHTML = response
-  // let humidity = document.querySelector("#humidity")
-
+ 
 }
 
 function displayCurrentLocation(cityInput) {
