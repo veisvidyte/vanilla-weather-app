@@ -1,7 +1,5 @@
 body {
     background-color: rgb(1, 1, 66);
-    border: 1px solid gray;
-    border-radius: 30px;
     color: whitesmoke;
     font-family: PT Mono,monospace;
     margin: 0 auto;
@@ -13,6 +11,9 @@ form {
     max-width: 400px;
     padding: 30px 10px 20px     ;
 }
+ul {
+    list-style: none;
+}
 h1 {
 font-family: 'Raleway', sans-serif;
 font-weight: 600;
@@ -21,6 +22,10 @@ font-style: italic;
 p {
 font-family: 'Raleway', sans-serif;
 font-weight: 700;
+}
+.container {
+    border: 1px solid gray;
+        border-radius: 30px;
 }
 .search-bar {
     display: inline-block;
@@ -46,7 +51,9 @@ display: inline;
     font-size: 100px;
     padding: 0 10px;
 }
-
+.current-weather-conditions {
+    padding-left: 15px;
+}
 .temperature-collumn {
     text-align: right;
 }
@@ -54,10 +61,10 @@ display: inline;
     text-align: center;
     padding-bottom: 10px;;
 }
-.github-link { 
-    color: black;
+
+.github-link small { 
+    color: whitesmoke;
     cursor: pointer;
-    font-weight: thin;
-    text-align: center;
+    
 }
     
