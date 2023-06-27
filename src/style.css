@@ -13,6 +13,7 @@ form {
 }
 ul, li {
     list-style: none;
+    position: relative;
 }
 
 h1 {
@@ -25,35 +26,34 @@ p {
 font-family: 'Raleway', sans-serif;
 font-weight: 700;
 }
+
 .container {
     border: 1px solid gray;
-        border-radius: 30px;
+    border-radius: 30px;
 }
 .search-bar {
     display: inline-block;
     width: 250px;
 }
-.current-location {
-    padding-left: 30px;
-}
-.current-weather, .celsius-toggle .fahreinheit-toggle {
+
+.current-weather {
 font-size: 15px;
 display: inline;
 }
+
 .temp-value {
     display: inline;
     font-size: 30px;
 }
-.celsius-toggle, .fahreinheit-toggle{
-    cursor: pointer;
-    display: inline;
-}
+
 .current-weather-conditions {
-    padding-left: 15px;
+    padding-left: 10px;
 }
+
 .temperature-collumn {
     text-align: right;
 }
+
 .week-forecast {
     text-align: center;
     padding-bottom: 10px;;
@@ -62,6 +62,23 @@ display: inline;
 .github-link small { 
     color: whitesmoke;
     cursor: pointer;
-    
+    margin: 0 auto;
 }
-    
+
+.github-link {
+    text-decoration: none;
+}    
+
+.icon-credits {
+    text-decoration: none;
+}
+
+.links-and-credits {
+    text-align: center;
+}
+
+.social-links {
+    display: inline-block;
+    padding: 0 3px;
+    margin: 0;
+}
