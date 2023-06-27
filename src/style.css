@@ -44,6 +44,8 @@ display: inline;
 .temp-value {
     display: inline;
     font-size: 30px;
+    padding-right: 0;
+    
 }
 
 .current-weather-conditions {

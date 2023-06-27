@@ -29,7 +29,6 @@ let year = now.getFullYear();
 let hours = now.getHours();
 let minutes = now.getMinutes();
 let time = `${(now.getHours()<10?'0':'')}${hours}:${(now.getMinutes()<10?'0':'')}${minutes}`
-console.log(time)
 
 function showDate() {
   let currentDate = document.querySelector("#current-date")
@@ -37,15 +36,16 @@ function showDate() {
 }
 showDate()
 
-// Wk 5
-
 function showCurrentTemp(response) {
-  console.log(response);
   let currentTemp = Math.round(response.data.main.temp);
   let temperature = document.querySelector("#temp-value");
   temperature.innerHTML = `${currentTemp}°C`;
   let h1 = document.querySelector("#current-location");
   h1.innerHTML = response.data.name;
+  // let windSpeed = document.querySelector("#wind-speed")
+  // // windSpeed.innerHTML = response
+  // let humidity = document.querySelector("#humidity")
+
 }
 
 function displayCurrentLocation(cityInput) {
