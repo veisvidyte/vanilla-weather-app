@@ -38,7 +38,6 @@ showDate()
 
 
 function showCurrentTemp(response) {
-  console.log(response)
   celsiusTemperature = Math.round(response.data.temperature.current);
   let temperature = document.querySelector("#temp-value");
   temperature.innerHTML = `${celsiusTemperature}`;
