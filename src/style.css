@@ -50,7 +50,7 @@ li.units {
     display: inline-block;
 }
 
-li.units::first-letter {
+li:first-letter {
     text-transform: capitalize;
 }
 
@@ -61,6 +61,10 @@ li.units::first-letter {
 
 .active:hover {
     cursor: default;
+}
+
+.weather-description .current-weather {
+    text-transform: capitalize;
 }
 .current-weather-conditions {
     padding-left: 10px;
