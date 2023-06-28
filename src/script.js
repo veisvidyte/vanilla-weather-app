@@ -36,11 +36,12 @@ function showDate() {
 }
 showDate()
 
+
 function showCurrentTemp(response) {
   console.log(response)
-  let currentTemp = Math.round(response.data.temperature.current);
+  celsiusTemperature = Math.round(response.data.temperature.current);
   let temperature = document.querySelector("#temp-value");
-  temperature.innerHTML = `${currentTemp}°C`;
+  temperature.innerHTML = `${celsiusTemperature}`;
   let h1 = document.querySelector("#current-location");
   h1.innerHTML = response.data.city;
   let weatherDescription = document.querySelector("#weather-description")
@@ -97,24 +98,38 @@ function handleCurrentLocation(event){
   navigator.geolocation.getCurrentPosition(searchUserCity)
 }
 
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+
+  celsiusLink.classList.add("active")
+  fahrenheitLink.classList.remove("active")
+ 
+  temperature.innerHTML = Math.round(celsiusTemperature)
+}
+
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+
+  fahrenheitLink.classList.add("active")
+  celsiusLink.classList.remove("active")
+
+  let fahrenheitTemp =  ((celsiusTemperature * 9/5) + 32 )
+  temperature = Math.round(fahrenheitTemp)
+}
+
+let celsiusTemperature = null;
+
+let temperature = document.querySelector("#temp-value")
+
+let celsiusLink = document.querySelector("#celsius-link")
+celsiusLink.addEventListener("click", displayCelsiusTemp)
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link")
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp)
+
+
 let currentLocationButton = document.querySelector("#current-location-button")
 currentLocationButton.addEventListener("click", handleCurrentLocation)
 
 
 
-// CELSIUS TO FAHRENHEIT CONVERSION
-// function changeToFahrenheit(event) {
-//   event.preventDefault();
-//   tempValue.innerHTML = 66
-// }
-// function changeToCelsius(event) {
-//   event.preventDefault();
-//   tempValue.innerHTML = 19 
-// }
-// let tempValue = document.querySelector("#temp-value")
-
-// let celsiusLink = document.querySelector("#celsius-link")
-// celsiusLink.addEventListener("click", changeToCelsius)
-
-// let fahrenheitLink = document.querySelector("#fahrenheit-link")
-// fahrenheitLink.addEventListener("click", changeToFahrenheit)
