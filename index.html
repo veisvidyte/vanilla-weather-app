@@ -64,10 +64,7 @@
             <ul>
               <li>Currently in</li>
               <li>
-                <h1 id="current-location">
-                  London, <br />
-                  UK
-                </h1>
+                <h1 id="current-location"></h1>
               </li>
               <li>
                 <p id="current-date"></p>
@@ -76,11 +73,16 @@
           </div>
           <div class="col-3 temperature-collumn current-weather">
             <ul>
-              <li class="temp-value" id="temp-value">19 <small>°C</small></li>
-              <li id="current-weather-description"><small> Sunny </small></li>
+              <li class="temp-value" id="temp-value"></li>
+              <li class="units">
+                <a href="#" class="celsius-toggle" id="celsius-link">°C</a>
+                |
+                <a href="#" class="fahreinheit-toggle" id="fahrenheit-link"
+                  >°F
+                </a>
+              </li>
+              <li id="weather-description"></li>
             </ul>
-            <!-- <a href="#" class="celsius-toggle" id="celsius-link">°C</a>
-            <a href="#" class="fahreinheit-toggle" id="fahrenheit-link">°F</a> -->
           </div>
           <div class="col-3 current-weather sun-icon">
             <img
@@ -102,7 +104,7 @@
           <div class="col-3">
             <ul>
               <li id="sunrise-time">04:50am</li>
-              <li id="windspeed">8 mp/h</li>
+              <li id="wind-speed">8 mp/h</li>
             </ul>
           </div>
           <div class="col-3">

@@ -37,24 +37,26 @@ function showDate() {
 showDate()
 
 function showCurrentTemp(response) {
-  let currentTemp = Math.round(response.data.main.temp);
+  console.log(response)
+  let currentTemp = Math.round(response.data.temperature.current);
   let temperature = document.querySelector("#temp-value");
-  let windSpeed = document.querySelector("#wind-speed")
-  windSpeed.innerHTML = Math.round(response.data.wind.speed);
-  let humidity = document.querySelector("#humidity")
-  let sunrise = document.querySelector("#sunrise-time")
-  let sunset = document.querySelector("#sunset-time")
   temperature.innerHTML = `${currentTemp}°C`;
   let h1 = document.querySelector("#current-location");
-  h1.innerHTML = response.data.name;
+  h1.innerHTML = response.data.city;
+  let weatherDescription = document.querySelector("#weather-description")
+  weatherDescription.innerHTML  = `${response.data.condition.description}`
+  let windSpeed = document.querySelector("#wind-speed")
+  windSpeed.innerHTML = `${Math.round(response.data.wind.speed)} mp/h`
+  let humidity = document.querySelector("#humidity")
+  humidity.innerHTML = `${response.data.temperature.humidity}%`
  
 }
 
 function displayCurrentLocation(cityInput) {
  let units = `metric`
- let apiKey = `c346c49bd4b6e73b2c4880febce56480`
- let apiEndPoint = `https://api.openweathermap.org/data/2.5/weather`
- let apiUrl = `${apiEndPoint}?q=${cityInput.value}&appid=${apiKey}&units=${units}`
+ let apiKey = `eof280024d498303t5b30f9fbaeb9677`
+ let apiEndPoint = `https://api.shecodes.io/weather/v1/current`
+ let apiUrl = `${apiEndPoint}?query=${cityInput.value}&key=${apiKey}&units=${units}`
  let h1 = document.querySelector("#current-location");
  h1.textContent = (`${cityInput.value}`);
 
@@ -73,8 +75,8 @@ locationSearchForm.addEventListener("submit", formSubmit)
 function showUserCity(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiKey = `c346c49bd4b6e73b2c4880febce56480`;
-  let apiUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${apiKey}`
+  let apiKey = `eof280024d498303t5b30f9fbaeb9677`; 
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}`
   let h1 = document.querySelector("#current-location");
   h1.textContent = (`${postion}`);
   showCurrentTemp();
@@ -84,9 +86,9 @@ function searchUserCity(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let units = `metric`;
-  let apiKey = `c346c49bd4b6e73b2c4880febce56480`;
-  let apiEndPoint = `https://api.openweathermap.org/data/2.5/weather`;
-  let apiUrl = `${apiEndPoint}?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  let apiKey = `eof280024d498303t5b30f9fbaeb9677`;
+  let apiEndPoint = `https://api.shecodes.io/weather/v1/current`;
+  let apiUrl = `${apiEndPoint}?lon=${lon}&lat=${lat}&key=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showCurrentTemp);
 }
 

@@ -42,10 +42,16 @@ display: inline;
 }
 
 .temp-value {
-    display: inline;
+    display: inline-block;
     font-size: 30px;
     padding-right: 0;
-    
+}
+li.units {
+    display: inline-block;
+}
+
+li.units::first-letter {
+    text-transform: capitalize;
 }
 
 .current-weather-conditions {
