@@ -45,12 +45,11 @@ function showCurrentTemp(response) {
   let h1 = document.querySelector("#current-location");
   h1.innerHTML = response.data.city;
   let weatherDescription = document.querySelector("#weather-description")
-  weatherDescription.innerHTML  = `${response.data.condition.description}`
+  weatherDescription.innerHTML  = response.data.condition.description
   let windSpeed = document.querySelector("#wind-speed")
   windSpeed.innerHTML = `${Math.round(response.data.wind.speed)} mp/h`
   let humidity = document.querySelector("#humidity")
   humidity.innerHTML = `${response.data.temperature.humidity}%`
- 
 }
 
 function displayCurrentLocation(cityInput) {
@@ -113,8 +112,8 @@ function displayFahrenheitTemp(event) {
   fahrenheitLink.classList.add("active")
   celsiusLink.classList.remove("active")
 
-  let fahrenheitTemp =  ((celsiusTemperature * 9/5) + 32 )
-  temperature = Math.round(fahrenheitTemp)
+  let fahrenheitTemp = ((celsiusTemperature * 9/5) + 32 )
+  temperature.innerHTML = Math.round(fahrenheitTemp)
 }
 
 let celsiusTemperature = null;
