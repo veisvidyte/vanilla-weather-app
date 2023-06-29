@@ -1,40 +1,22 @@
 function formatDate(timestamp) {
-let now = new Date(timestamp);
+let now = new Date(timestamp * 1000);
 
-let day = now.getDay();
-
-let weekdays = [ 
-  "Sunday",
-  "Monday", 
-  "Tuesday", 
-  "Wednesday", 
-  "Thursday", 
-  "Friday", 
-  "Saturday"
-]
-
-let date = now.getDate();
-let month = now.getMonth();
-let months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec"
-]
-
-let year = now.getFullYear();
 let hours = now.getHours();
 let minutes = now.getMinutes();
-let time = `${(now.getHours()<10?'0':'')}${hours}:${(now.getMinutes()<10?'0':'')}${minutes}`
-}
 
+let weekdays = [ 
+  "Sun",
+  "Mon", 
+  "Tue", 
+  "Wed", 
+  "Thu", 
+  "Fri", 
+  "Sat"
+]
+
+let day = now.getDay();
+return `${weekdays[day]} ${(now.getHours()<10?'0':'')} ${hours}:${(now.getMinutes()<10?'0':'')}${minutes}`;
+}
 
 function showCurrentTemp(response) {
   console.log(response);
@@ -51,7 +33,7 @@ function showCurrentTemp(response) {
   weatherDescription.innerHTML  = response.data.condition.description
   windSpeed.innerHTML = `${Math.round(response.data.wind.speed)} mp/h`
   humidity.innerHTML = `${response.data.temperature.humidity}%`
-  currentDate.innerHTML = formatDate(response.data.time *1000)
+  currentDate.innerHTML = formatDate(response.data.time)
 }
 
 function displayCurrentLocation(cityInput) {
