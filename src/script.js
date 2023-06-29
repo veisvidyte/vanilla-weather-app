@@ -19,7 +19,6 @@ return `${weekdays[day]} ${(now.getHours()<10?'0':'')} ${hours}:${(now.getMinute
 }
 
 function showCurrentTemp(response) {
-  console.log(response);
   celsiusTemperature = Math.round(response.data.temperature.current);
   let temperature = document.querySelector("#temp-value");
   let h1 = document.querySelector("#current-location");
