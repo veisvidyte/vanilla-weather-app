@@ -27,6 +27,7 @@ function showCurrentTemp(response) {
   let windSpeed = document.querySelector("#wind-speed")
   let humidity = document.querySelector("#humidity")
   let currentDate = document.querySelector("#current-date")
+  let currentWeatherIcon = document.querySelector("#current-weather-icon")
 
   temperature.innerHTML = `${celsiusTemperature}`;
   h1.innerHTML = response.data.city;
@@ -34,8 +35,9 @@ function showCurrentTemp(response) {
   windSpeed.innerHTML = `${Math.round(response.data.wind.speed)} mp/h`
   humidity.innerHTML = `${response.data.temperature.humidity}%`
   currentDate.innerHTML = formatDate(response.data.time)
+  currentWeatherIcon.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
+   currentWeatherIcon.setAttribute("alt", `${response.data.condition.description}`)
 }
-
 function displayCurrentLocation(cityInput) {
  let units = `metric`
  let apiKey = `eof280024d498303t5b30f9fbaeb9677`
@@ -113,6 +115,3 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp)
 
 let currentLocationButton = document.querySelector("#current-location-button")
 currentLocationButton.addEventListener("click", handleCurrentLocation)
-
-
-
