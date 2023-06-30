@@ -37,6 +37,7 @@ function showCurrentTemp(response) {
   currentWeatherIcon.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
    currentWeatherIcon.setAttribute("alt", `${response.data.condition.description}`)
 }
+
 function displayCurrentLocation(cityInput) {
  let units = `metric`
  let apiKey = `eof280024d498303t5b30f9fbaeb9677`
@@ -66,6 +67,17 @@ function showUserCity(position) {
   h1.textContent = (`${postion}`);
   showCurrentTemp();
 }
+
+function showCityOnLoad() {
+  let units = `metric`;
+  let defaultCity = `London`
+  let apiKey = `eof280024d498303t5b30f9fbaeb9677`;
+  let apiEndPoint = `https://api.shecodes.io/weather/v1/current`;
+  let apiUrl = `${apiEndPoint}?query=${defaultCity}&key=${apiKey}&units=${units}`;
+  
+  axios.get(apiUrl).then(showCurrentTemp);
+}
+
 
 function searchUserCity(position) {
   let lat = position.coords.latitude;
@@ -114,3 +126,13 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp)
 
 let currentLocationButton = document.querySelector("#current-location-button")
 currentLocationButton.addEventListener("click", handleCurrentLocation)
+
+// function showCityOnLoad() {
+//   let units = `metric`;
+//   let defaultCity = `London`
+//   let apiKey = `eof280024d498303t5b30f9fbaeb9677`;
+//   let apiEndPoint = `https://api.shecodes.io/weather/v1/current`;
+//   let apiUrl = `${apiEndPoint}?query=${defaultCity}&key=${apiKey}&units=${units}`;
+
+//   axios.get(apiUrl).then(showCurrentTemp);
+// }
