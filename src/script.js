@@ -42,7 +42,7 @@ function displayCurrentLocation(cityInput) {
  let units = `metric`
  let apiKey = `eof280024d498303t5b30f9fbaeb9677`
  let apiEndPoint = `https://api.shecodes.io/weather/v1/current`
- let apiUrl = `${apiEndPoint}?query=${cityInput.value}&key=${apiKey}&units=${units}`
+ let apiUrl = `${apiEndPoint}?query=${cityInput}&key=${apiKey}&units=${units}`
  let h1 = document.querySelector("#current-location");
  h1.textContent = (`${cityInput.value}`);
 
@@ -52,7 +52,7 @@ function displayCurrentLocation(cityInput) {
 function formSubmit(event) {
 event.preventDefault();
 let cityInput = document.querySelector("#location-search-input")
-displayCurrentLocation(cityInput);
+displayCurrentLocation(cityInput.value);
 }
 
 let locationSearchForm = document.querySelector("#location-search-form")
@@ -127,12 +127,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp)
 let currentLocationButton = document.querySelector("#current-location-button")
 currentLocationButton.addEventListener("click", handleCurrentLocation)
 
-// function showCityOnLoad() {
-//   let units = `metric`;
-//   let defaultCity = `London`
-//   let apiKey = `eof280024d498303t5b30f9fbaeb9677`;
-//   let apiEndPoint = `https://api.shecodes.io/weather/v1/current`;
-//   let apiUrl = `${apiEndPoint}?query=${defaultCity}&key=${apiKey}&units=${units}`;
-
-//   axios.get(apiUrl).then(showCurrentTemp);
-// }
+displayCurrentLocation("london")

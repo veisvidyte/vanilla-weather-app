@@ -76,9 +76,12 @@ li:first-letter {
     text-align: right;
 }
 
-.week-forecast {
+.weather-forecast {
     text-align: center;
-    padding-bottom: 10px;;
+    margin-bottom: 10px;
+}
+.weather-forecast-min-temp {
+    opacity: 0.6;
 }
 
 .github-link small { 
