@@ -18,39 +18,8 @@ let day = now.getDay();
 return `${weekdays[day]} ${(now.getHours()<10?"0":"")} ${hours}:${(now.getMinutes()<10?'0':'')}${minutes}`;
 }
 
-// function displayForecast() {
-//   let forecast = document.querySelector("#weather-forecast");
-
-//   let forecastHTML = `<div class="row">`;
-//   let forecastDays = [
-//   "Wed", 
-//   "Thu", 
-//   "Fri"
-//   ]
-//   forecastDays.forEach(function(day) {
-//      forecastHTML = forecastHTML + 
-//   `
-//             <div class ="col-2 week-forecast">
-//                 <div class ="weather-forecast-date">${day}</div>
-//                 <img
-//                   src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/087/236/original/cloudy.png?1687856689"
-//                   alt="Partially cloudy"
-//                   class="week-forecast-images"
-//                   width="30px"
-//                 />
-//                 <div class="weather-forecast-temp">
-//                 <span class="weather-forecast-temp-max"> 22 </span>
-//                 <span class="weather-forecast-temp-min"> 18 </span>
-//               </div>
-//             </div>
-//         </div>
-//   `;
-//   })
-//   forecastHTML = `</div>`;
-//   forecast.innerHTML = forecastHTML;
-// }
-
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data)
   let forecast = document.querySelector("#weather-forecast");
   let forecastHTML = `<div class="row">`;
   let forecastDays = [
@@ -82,6 +51,15 @@ function displayForecast() {
   forecast.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  let apiKey = `eof280024d498303t5b30f9fbaeb9677`
+  let apiEndPoint = `https://api.shecodes.io/weather/v1/forecast`
+  let apiUrl = `${apiEndPoint}?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apiKey}&units=metric`
+  console.log(apiUrl);
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showCurrentTemp(response) {
   celsiusTemperature = Math.round(response.data.temperature.current);
   let temperature = document.querySelector("#temp-value");
@@ -100,6 +78,8 @@ function showCurrentTemp(response) {
   currentDate.innerHTML = formatDate(response.data.time)
   currentWeatherIcon.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
    currentWeatherIcon.setAttribute("alt", `${response.data.condition.description}`)
+
+   getForecast(response.data.coordinates);
 }
 
 function displayCurrentLocation(cityInput) {
@@ -195,3 +175,5 @@ currentLocationButton.addEventListener("click", handleCurrentLocation)
 displayCurrentLocation("london")
 
 displayForecast();
+
+
