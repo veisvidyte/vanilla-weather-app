@@ -18,39 +18,67 @@ let day = now.getDay();
 return `${weekdays[day]} ${(now.getHours()<10?"0":"")} ${hours}:${(now.getMinutes()<10?'0':'')}${minutes}`;
 }
 
+// function displayForecast() {
+//   let forecast = document.querySelector("#weather-forecast");
+
+//   let forecastHTML = `<div class="row">`;
+//   let forecastDays = [
+//   "Wed", 
+//   "Thu", 
+//   "Fri"
+//   ]
+//   forecastDays.forEach(function(day) {
+//      forecastHTML = forecastHTML + 
+//   `
+//             <div class ="col-2 week-forecast">
+//                 <div class ="weather-forecast-date">${day}</div>
+//                 <img
+//                   src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/087/236/original/cloudy.png?1687856689"
+//                   alt="Partially cloudy"
+//                   class="week-forecast-images"
+//                   width="30px"
+//                 />
+//                 <div class="weather-forecast-temp">
+//                 <span class="weather-forecast-temp-max"> 22 </span>
+//                 <span class="weather-forecast-temp-min"> 18 </span>
+//               </div>
+//             </div>
+//         </div>
+//   `;
+//   })
+//   forecastHTML = `</div>`;
+//   forecast.innerHTML = forecastHTML;
+// }
+
 function displayForecast() {
   let forecast = document.querySelector("#weather-forecast");
-
   let forecastHTML = `<div class="row">`;
   let forecastDays = [
-  "Wed", 
-  "Thu", 
-  "Fri", 
-  "Sat", 
-  "Sun", 
-  "Mon"
-  ]
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+    "Sun",
+    "Mon"
+  ];
   forecastDays.forEach(function(day) {
-     forecastHTML = forecastHTML + 
-  `
-            <div class ="col-2 week-forecast">
-                <div class ="weather-forecast-date">${day}</div>
-                <img
-                  src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/087/236/original/cloudy.png?1687856689"
-                  alt="Partially cloudy"
-                  class="week-forecast-images"
-                  width="30px"
-                />
-                <div class="weather-forecast-temp">
-                <span class="weather-forecast-temp-max"> 22 </span>
-                <span class="weather-forecast-temp-min"> 18 </span>
-              </div>
-            </div>
-          </div>
+    forecastHTML += `
+      <div class="col-2 week-forecast">
+        <div class="weather-forecast-date">${day}</div>
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/087/236/original/cloudy.png?1687856689"
+          alt="Partially cloudy"
+          class="week-forecast-images"
+          width="30px"
+        />
+        <div class="weather-forecast-temp">
+          <span class="weather-forecast-temp-max"> 22 </span>
+          <span class="weather-forecast-temp-min"> 18 </span>
         </div>
-  `;
-  })
-  forecastHTML = `</div>`;
+      </div>
+    `;
+  });
+  forecastHTML += `</div>`;
   forecast.innerHTML = forecastHTML;
 }
 
