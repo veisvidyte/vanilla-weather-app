@@ -19,7 +19,6 @@ return `${weekdays[day]} ${(now.getHours()<10?"0":"")} ${hours}:${(now.getMinute
 }
 
 function displayForecast(response) {
-  console.log(response.data)
   let forecast = document.querySelector("#weather-forecast");
   let forecastHTML = `<div class="row">`;
   let forecastDays = [
@@ -53,9 +52,7 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   let apiKey = `eof280024d498303t5b30f9fbaeb9677`
-  let apiEndPoint = `https://api.shecodes.io/weather/v1/forecast`
-  let apiUrl = `${apiEndPoint}?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apiKey}&units=metric`
-  console.log(apiUrl);
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`
 
   axios.get(apiUrl).then(displayForecast);
 }
