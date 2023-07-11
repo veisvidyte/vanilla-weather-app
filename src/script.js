@@ -19,56 +19,48 @@ return `${weekdays[day]} ${(now.getHours()<10?"0":"")} ${hours}:${(now.getMinute
 }
 
 function formatDay(timestamp) {
-let date = new Date(timestamp * 1000);
-let day = date.getDay();
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
 
-let weekdays = [ 
-  "Sun",
-  "Mon", 
-  "Tue", 
-  "Wed", 
-  "Thu", 
-  "Fri", 
-  "Sat"
-];
-
-return weekdays[day];
-}
-
-function displayForecast(response) {
-  console.log(response.data)
-  let forecast = response.data.daily 
-  let forecastElement = document.querySelector("#weather-forecast");
-  let forecastHTML = `<div class="row">`;
-  let forecastDays = [
+  let weekdays = [
+    "Sun",
+    "Mon",
+    "Tue",
     "Wed",
     "Thu",
     "Fri",
-    "Sat",
-    "Sun",
-    "Mon"
+    "Sat"
   ];
-  forecast.forEach(function(forecastDay, index) {
+
+  return weekdays[day];
+}
+
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#weather-forecast");
+
+  let forecastHTML = <div class="row">;
+  forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
-    forecastHTML += `
-      <div class="col-2 week-forecast">
-        <div class="weather-forecast-date">${formatDay(forecastDay.time)}</div>
-        ${index}
-        <img
-          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/087/236/original/${forecastDay.condition.icon}.png?1687856689"
-          alt="Partially cloudy"
-          class="week-forecast-images"
-          width="30px"
-        />
-        <div class="weather-forecast-temp">
+      forecastHTML += 
+        <div class="col-2 week-forecast">
+          <div class="weather-forecast-date">${formatDay(forecastDay.time)}</div>
+          <img
+            src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png"
+            alt=""
+            class="week-forecast-images"
+            width="30px"
+          ></img>
+          <div class="weather-forecast-temp">
           <span class="weather-forecast-temp-max"> ${Math.round(forecastDay.temperature.maximum)} </span>
           <span class="weather-forecast-temp-min"> ${Math.round(forecastDay.temperature.minimum)} </span>
         </div>
-      </div>
-    `;
-    }
+        </div>
+    };
   });
-  forecastHTML += `</div>`;
+  forecastHTML += </div>;
   forecastElement.innerHTML = forecastHTML;
 }
 
@@ -159,13 +151,9 @@ function handleCurrentLocation(event){
 
 function displayCelsiusTemp(event) {
   event.preventDefault();
-
-  celsiusLink.classList.add("active")
-  fahrenheitLink.classList.remove("active")
  
   temperature.innerHTML = Math.round(celsiusTemperature)
 }
-
 
 let celsiusTemperature = null;
 
