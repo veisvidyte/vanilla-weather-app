@@ -18,8 +18,27 @@ let day = now.getDay();
 return `${weekdays[day]} ${(now.getHours()<10?"0":"")} ${hours}:${(now.getMinutes()<10?'0':'')}${minutes}`;
 }
 
+function formatDay(timestamp) {
+let date = new Date(timestamp * 1000);
+let day = date.getDay();
+
+let weekdays = [ 
+  "Sun",
+  "Mon", 
+  "Tue", 
+  "Wed", 
+  "Thu", 
+  "Fri", 
+  "Sat"
+];
+
+return weekdays[day];
+}
+
 function displayForecast(response) {
-  let forecast = document.querySelector("#weather-forecast");
+  console.log(response.data)
+  let forecast = response.data.daily 
+  let forecastElement = document.querySelector("#weather-forecast");
   let forecastHTML = `<div class="row">`;
   let forecastDays = [
     "Wed",
@@ -29,25 +48,28 @@ function displayForecast(response) {
     "Sun",
     "Mon"
   ];
-  forecastDays.forEach(function(day) {
+  forecast.forEach(function(forecastDay, index) {
+    if (index < 6) {
     forecastHTML += `
       <div class="col-2 week-forecast">
-        <div class="weather-forecast-date">${day}</div>
+        <div class="weather-forecast-date">${formatDay(forecastDay.time)}</div>
+        ${index}
         <img
-          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/087/236/original/cloudy.png?1687856689"
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/087/236/original/${forecastDay.condition.icon}.png?1687856689"
           alt="Partially cloudy"
           class="week-forecast-images"
           width="30px"
         />
         <div class="weather-forecast-temp">
-          <span class="weather-forecast-temp-max"> 22 </span>
-          <span class="weather-forecast-temp-min"> 18 </span>
+          <span class="weather-forecast-temp-max"> ${Math.round(forecastDay.temperature.maximum)} </span>
+          <span class="weather-forecast-temp-min"> ${Math.round(forecastDay.temperature.minimum)} </span>
         </div>
       </div>
     `;
+    }
   });
   forecastHTML += `</div>`;
-  forecast.innerHTML = forecastHTML;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function getForecast(coordinates) {
@@ -144,27 +166,10 @@ function displayCelsiusTemp(event) {
   temperature.innerHTML = Math.round(celsiusTemperature)
 }
 
-function displayFahrenheitTemp(event) {
-  event.preventDefault();
-
-  fahrenheitLink.classList.add("active")
-  celsiusLink.classList.remove("active")
-
-  let fahrenheitTemp = ((celsiusTemperature * 9/5) + 32 )
-  temperature.innerHTML = Math.round(fahrenheitTemp)
-}
 
 let celsiusTemperature = null;
 
-
 let temperature = document.querySelector("#temp-value")
-
-let celsiusLink = document.querySelector("#celsius-link")
-celsiusLink.addEventListener("click", displayCelsiusTemp)
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link")
-fahrenheitLink.addEventListener("click", displayFahrenheitTemp)
-
 
 let currentLocationButton = document.querySelector("#current-location-button")
 currentLocationButton.addEventListener("click", handleCurrentLocation)

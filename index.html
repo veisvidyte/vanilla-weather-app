@@ -31,123 +31,103 @@
     <title>Pixel Weather App</title>
   </head>
   <body>
-    <div class="image-container">
+    <div class="container">
+      <form id="location-search-form">
+        <div class="mb-3 search-bar">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Type your location here"
+            id="location-search-input"
+            autocomplete="off"
+            autofocus="on"
+          />
+        </div>
+        <button
+          type="submit"
+          class="btn btn-outline-light btn-sm button"
+          id="location-search-button"
+        >
+          Search
+        </button>
+        <button
+          type="submit"
+          class="btn btn-outline-light btn-sm button"
+          id="current-location-button"
+        >
+          <i class="fa-solid fa-location-dot" style="color: #ffffff"></i>
+        </button>
+      </form>
       <div class="row">
-        <div class="col-1">
+        <div class="col-6 current-location">
+          <ul>
+            <li>Currently in</li>
+            <li>
+              <h1 id="current-location"></h1>
+            </li>
+            <li>
+              <p>Last updated: <span id="current-date"></span></p>
+            </li>
+          </ul>
+        </div>
+        <div class="col-3 current-weather">
+          <ul>
+            <li class="temp-value" id="temp-value"></li>
+            <li class="units">°C</li>
+            <li id="weather-description"></li>
+          </ul>
+        </div>
+        <div class="col-3 current-weather">
           <img
-            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/087/579/original/alien-pixelated-shape-of-a-digital-game.png?1688073500
-          "
+            src="#"
             alt=""
-            width="50px"
+            class="current-weather-icon"
+            id="current-weather-icon"
+            width="100px"
           />
         </div>
       </div>
-      <div class="container">
-        <form id="location-search-form">
-          <div class="mb-3 search-bar">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Type your location here"
-              id="location-search-input"
-              autocomplete="off"
-              autofocus="on"
-            />
-          </div>
-          <button
-            type="submit"
-            class="btn btn-outline-light btn-sm button"
-            id="location-search-button"
-          >
-            Search
-          </button>
-          <button
-            type="submit"
-            class="btn btn-outline-light btn-sm button"
-            id="current-location-button"
-          >
-            <i class="fa-solid fa-location-dot" style="color: #ffffff"></i>
-          </button>
-        </form>
+      <hr />
+      <div class="row current-weather-conditions">
+        <div class="col-3">
+          <ul>
+            <li>Sunrise</li>
+            <li>Wind</li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <ul>
+            <li id="sunrise-time">04:50am</li>
+            <li id="wind-speed">8 mp/h</li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <ul>
+            <li>Sunset</li>
+            <li>Humidity</li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <ul>
+            <li id="sunset-time">21:30pm</li>
+            <li id="humidity">45%</li>
+          </ul>
+        </div>
+      </div>
+      <hr />
+      <div class="weather-forecast" id="weather-forecast">
         <div class="row">
-          <div class="col-6 current-location">
-            <ul>
-              <li>Currently in</li>
-              <li>
-                <h1 id="current-location"></h1>
-              </li>
-              <li>
-                <p>Last updated: <span id="current-date"></span></p>
-              </li>
-            </ul>
-          </div>
-          <div class="col-3 current-weather">
-            <ul>
-              <li class="temp-value" id="temp-value"></li>
-              <li class="units">
-                <a href="#" class="celsius-toggle active" id="celsius-link"
-                  >°C</a
-                >
-                |
-                <a href="#" class="fahreinheit-toggle" id="fahrenheit-link"
-                  >°F
-                </a>
-              </li>
-              <li id="weather-description"></li>
-            </ul>
-          </div>
-          <div class="col-3 current-weather">
+          <div class="col-2">
+            <div class="weather-forecast-date">Sat</div>
             <img
-              src="#"
-              alt=""
-              class="current-weather-icon"
-              id="current-weather-icon"
-              width="100px"
+              src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/087/236/original/cloudy.png?1687856689"
+              alt="Partially cloudy"
+              class="week-forecast-images"
+              width="30px"
             />
-          </div>
-        </div>
-        <hr />
-        <div class="row current-weather-conditions">
-          <div class="col-3">
-            <ul>
-              <li>Sunrise</li>
-              <li>Wind</li>
-            </ul>
-          </div>
-          <div class="col-3">
-            <ul>
-              <li id="sunrise-time">04:50am</li>
-              <li id="wind-speed">8 mp/h</li>
-            </ul>
-          </div>
-          <div class="col-3">
-            <ul>
-              <li>Sunset</li>
-              <li>Humidity</li>
-            </ul>
-          </div>
-          <div class="col-3">
-            <ul>
-              <li id="sunset-time">21:30pm</li>
-              <li id="humidity">45%</li>
-            </ul>
-          </div>
-        </div>
-        <hr />
-        <div class="weather-forecast" id="weather-forecast">
-          <div class="row">
-            <div class="col-2">
-              <div class="weather-forecast-date">Sat</div>
-              <img
-                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/087/236/original/cloudy.png?1687856689"
-                alt="Partially cloudy"
-                class="week-forecast-images"
-                width="30px"
-              />
-              <div class="weather-forecast-temp">
-                <span class="weather-forecast-temp-max"> 22 </span>
-                <span class="weather-forecast-temp-min"> 18 </span>
-              </div>
+            <div class="weather-forecast-temp">
+              <span class="weather-forecast-temp-max"> 22 </span>
+              <span class="weather-forecast-temp-min"> 18 </span>
             </div>
           </div>
         </div>
