@@ -1,14 +1,13 @@
 body {
-    background: linear-gradient(to top, #f5ecee 0%, #e3eeff 99%, #e3eeff 100%);
-    color: black;
+    background: linear-gradient(to top, rgb(0, 87, 146, 44%) 10%, rgb(0, 187, 240, 35%) 30%, rgb(253, 180, 75, 40%) 100%);
+    color: rgb(1, 1, 66);
     font-family: PT Mono,monospace;
+    
     margin: 0 auto;
-    margin-top: 35px;
+    margin-top: 40px;
     width: 55%;
-}
-.container {
-    background-color: rgb(1, 1, 66, 88%);
-    color: whitesmoke;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 form {
@@ -23,19 +22,24 @@ ul, li {
 
 h1 {
 font-family: 'Raleway', sans-serif;
-font-weight: 600;
+font-size: 120;
 font-style: italic;
+font-weight: 600;
+
 }
 
 p {
 font-family: 'Raleway', sans-serif;
 font-weight: 700;
 }
-
 .container {
+    background-color: rgb(1, 1, 66, 65%);
+    color: whitesmoke;
     border: 1px solid gray;
     border-radius: 30px;
+    font-family: PT Mono, monospace;
 }
+
 .search-bar {
     display: inline-block;
     width: 250px;
@@ -50,6 +54,8 @@ padding: 0;
 .current-weather-icon {
     position: relative;
     padding-left: 0;
+    width: 150px;
+    margin-bottom: 0;
 }
 
 .temp-value {
@@ -68,6 +74,7 @@ li:first-letter {
 
 .weather-description .current-weather {
     text-transform: capitalize;
+    text-align: right;
 }
 
 .current-weather-conditions {
@@ -82,7 +89,7 @@ li:first-letter {
     text-align: center;
     margin-bottom: 10px;
 }
-.weather-forecast-min-temp {
+.weather-forecast-temp-min {
     opacity: 0.3;
 }
 
@@ -98,10 +105,14 @@ li:first-letter {
 
 .links-and-credits {
     text-align: center;
+    line-height: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .social-links {
     display: inline-block;
     padding: 0 3px;
     margin: 0;
+    margin-top: 5px;
 }
