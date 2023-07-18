@@ -2,7 +2,6 @@ body {
     background: linear-gradient(to top, rgb(0, 87, 146, 44%) 10%, rgb(0, 187, 240, 35%) 30%, rgb(253, 180, 75, 40%) 100%);
     color: rgb(1, 1, 66);
     font-family: PT Mono,monospace;
-    
     margin: 0 auto;
     margin-top: 40px;
     width: 55%;
@@ -25,15 +24,17 @@ font-family: 'Raleway', sans-serif;
 font-size: 120;
 font-style: italic;
 font-weight: 600;
+margin-bottom: 0;
 
 }
 
 p {
-font-family: 'Raleway', sans-serif;
-font-weight: 700;
+ font-family: PT Mono, monospace;
+ letter-spacing: -1px;
 }
+
 .container {
-    background-color: rgb(1, 1, 66, 65%);
+    background: linear-gradient(to bottom, rgb(1, 1, 66, 67%) 40%, rgb(95, 104, 170) 100%);
     color: whitesmoke;
     border: 1px solid gray;
     border-radius: 30px;
@@ -50,22 +51,34 @@ font-size: 15px;
 display: inline;
 padding: 0;
 }
-
-.current-weather-icon {
-    position: relative;
-    padding-left: 0;
-    width: 150px;
-    margin-bottom: 0;
+li.temp-value {
+    letter-spacing: -1px;
 }
 
 .temp-value {
     display: inline-block;
-    font-size: 30px;
-    padding-right: 0;
+    font-size: 40px;
+}
+.weather-description {
+    line-height: 18px;
+}
+
+.current-weather-icon {
+    position: relative;
+    top: -5px;
+    padding-left: 0;
+    width: 130px;
+    margin-bottom: 0;
 }
 
 li.units {
     display: inline-block;
+}
+
+.units {
+ position: relative;
+ top: -17px;
+ left: -3px
 }
 
 li:first-letter {
@@ -114,5 +127,5 @@ li:first-letter {
     display: inline-block;
     padding: 0 3px;
     margin: 0;
-    margin-top: 5px;
+    margin-top: 3px;
 }

@@ -89,7 +89,7 @@ function showCurrentTemp(response) {
   humidity.innerHTML = `${response.data.temperature.humidity}%`
   currentDate.innerHTML = formatDate(response.data.time)
   currentWeatherIcon.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
-   currentWeatherIcon.setAttribute("alt", `${response.data.condition.description}`)
+  currentWeatherIcon.setAttribute("alt", `${response.data.condition.description}`)
 
    getForecast(response.data.coordinates);
 }
