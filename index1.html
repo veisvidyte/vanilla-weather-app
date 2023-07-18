@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Raleway:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Raleway:ital,wght@0,400;0,600;0,700;0,800;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/f4eaa4aa57.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Pixel Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <form id="location-search-form">
+        <div class="mb-3 search-bar">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Type your location here"
+            id="location-search-input"
+            autocomplete="off"
+            autofocus="on"
+          />
+        </div>
+        <button
+          type="submit"
+          class="btn btn-outline-light btn-sm button"
+          id="location-search-button"
+        >
+          Search
+        </button>
+        <button
+          type="submit"
+          class="btn btn-outline-light btn-sm button"
+          id="current-location-button"
+        >
+          <i class="fa-solid fa-location-dot" style="color: #ffffff"></i>
+        </button>
+      </form>
+      <div class="row">
+        <div class="col-6 current-location">
+          <ul>
+            <li>Currently in</li>
+            <li>
+              <h1 id="current-location"></h1>
+            </li>
+            <li>
+              <p>Last updated: <span id="current-date"></span></p>
+            </li>
+          </ul>
+        </div>
+        <div class="col-3 current-weather">
+          <ul class="current-weather-element">
+            <li class="temp-value" id="temp-value"></li>
+            <li class="units">°C</li>
+            <li id="weather-description"></li>
+          </ul>
+        </div>
+        <div class="col-3 current-weather">
+          <img
+            src="#"
+            alt=""
+            class="current-weather-icon"
+            id="current-weather-icon"
+            width="100px"
+          />
+        </div>
+      </div>
+      <hr />
+      <div class="row current-weather-conditions">
+        <div class="col-3">
+          <ul>
+            <li>Wind</li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <ul>
+            <li id="wind-speed">8 mp/h</li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <ul>
+            <li>Humidity</li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <ul>
+            <li id="humidity">45%</li>
+          </ul>
+        </div>
+      </div>
+      <hr />
+      <div class="weather-forecast" id="weather-forecast">
+        <div class="row">
+          <div class="col-2">
+            <div class="weather-forecast-date"></div>
+            <img src="#" alt="" class="week-forecast-images" width="30px" />
+            <div class="weather-forecast-temp">
+              <span class="weather-forecast-temp-max"></span>
+              <span class="weather-forecast-temp-min"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="links-and-credits">
+      <small>
+        Open-Source code hosted on
+        <a
+          href="https://github.com/veisvidyte/vanilla-weather-app"
+          target="_blank"
+          class="github-link"
+          >Github</a
+        >
+        <br />
+        by Vilte Eisvidyte
+        <br />
+        <ul class="social-links">
+          <li class="social-links">
+            <a href="https://www.instagram.com/vilte.xx/" target="_blank">
+              <img
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/087/239/original/instagram.png?1687857198"
+                alt="Instagram-link"
+                width="15px"
+              />
+            </a>
+          </li>
+          <li class="social-links">
+            <a
+              href="https://www.linkedin.com/in/vilte-eisvidyte/"
+              target="_blank"
+              ><img
+                src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/087/240/original/linkedin.png?1687857303"
+                alt="LinkedIn-link"
+                width="15px"
+              />
+            </a>
+          </li>
+        </ul>
+      </small>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>

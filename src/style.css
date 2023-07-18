@@ -1,13 +1,18 @@
 body {
-    background-color: rgb(1, 1, 66);
-    color: whitesmoke;
+    background: linear-gradient(to top, #f5ecee 0%, #e3eeff 99%, #e3eeff 100%);
+    color: black;
     font-family: PT Mono,monospace;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 35px;
     width: 55%;
 }
+.container {
+    background-color: rgb(1, 1, 66, 88%);
+    color: whitesmoke;
+}
+
 form {
-    margin-top: 10px;
+    margin-top: 8px;
     max-width: 400px;
     padding: 30px 10px 20px     ;
 }
@@ -39,15 +44,14 @@ font-weight: 700;
 .current-weather {
 font-size: 15px;
 display: inline;
+padding: 0;
 }
 
 .current-weather-icon {
     position: relative;
+    padding-left: 0;
 }
 
-.current-weather-element {
-    padding-right: 5px;
-}
 .temp-value {
     display: inline-block;
     font-size: 30px;
@@ -65,11 +69,12 @@ li:first-letter {
 .weather-description .current-weather {
     text-transform: capitalize;
 }
+
 .current-weather-conditions {
     padding-left: 10px;
 }
 
-.temperature-collumn {
+.current-weather-element {
     text-align: right;
 }
 
@@ -78,7 +83,7 @@ li:first-letter {
     margin-bottom: 10px;
 }
 .weather-forecast-min-temp {
-    opacity: 0.6;
+    opacity: 0.3;
 }
 
 .github-link small { 
