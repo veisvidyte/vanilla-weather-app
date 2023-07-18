@@ -43,7 +43,6 @@ function displayForecast(response) {
 
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
-    console.log(forecastDay);
     if (index < 6) {
       forecastHTML += `
         <div class="col-2 week-forecast">
@@ -55,8 +54,8 @@ function displayForecast(response) {
             width="30px"
           ></img>
           <div class="weather-forecast-temp">
-              <span class="weather-forecast-temp-max"></span>
-              <span class="weather-forecast-temp-min"></span>
+              <span class="weather-forecast-temp-max">${forecastDay.temperature.maximum}</span>
+              <span class="weather-forecast-temp-min">${forecastDay.temperature.minimum}</span>
             </div>
         </div>
       `;
