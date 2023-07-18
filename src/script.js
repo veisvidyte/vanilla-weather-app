@@ -35,6 +35,32 @@ function formatDay(timestamp) {
   return weekdays[day];
 }
 
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#weather-forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML += `
+        <div class="col-2 week-forecast">
+          <div class="weather-forecast-date">${formatDay(forecastDay.time)}</div>
+          <img
+            src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png"
+            alt=""
+            class="week-forecast-images"
+            width="30px"
+          ></img>
+        </div>
+      `;
+    }
+  });
+  forecastHTML += `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function getForecast(coordinates) {
   let apiKey = `eof280024d498303t5b30f9fbaeb9677`
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`
