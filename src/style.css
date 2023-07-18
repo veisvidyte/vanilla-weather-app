@@ -3,7 +3,7 @@ body {
     color: whitesmoke;
     font-family: PT Mono,monospace;
     margin: 0 auto;
-    margin-top: 15px;
+    margin-top: 20px;
     width: 55%;
 }
 form {
@@ -26,9 +26,7 @@ p {
 font-family: 'Raleway', sans-serif;
 font-weight: 700;
 }
-.image-container {
-    width: 100%
-}
+
 .container {
     border: 1px solid gray;
     border-radius: 30px;
@@ -43,11 +41,19 @@ font-size: 15px;
 display: inline;
 }
 
+.current-weather-icon {
+    position: relative;
+}
+
+.current-weather-element {
+    padding-right: 5px;
+}
 .temp-value {
     display: inline-block;
     font-size: 30px;
     padding-right: 0;
 }
+
 li.units {
     display: inline-block;
 }
